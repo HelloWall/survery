@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+{#    <link rel="stylesheet" href="/static/css/login.css">#}
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h2 style="margin-left: 50px">欢迎登录</h2>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-4">
+            <img src="/static/img/odlboy.png" alt="">
+        </div>
+        <div class="col-md-offset-3 col-md-4" style="padding-left: 100px;margin-top: 50px;border-left: solid 1px black">
+            <form method="post" novalidate>
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username">用户名</label>
+                    <input type="text" class="form-control" id="username" placeholder="用户名" name="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    <input type="password" class="form-control" id="password" placeholder="密码" name="password">
+                </div>
+                <span id="user_msg"></span>
+                <button id="popup-submit" type="submit" class="btn btn-default login">登录</button>
+
+                <a href="#">
+                    <button type="button" class="btn btn-primary" style="margin-left: 100px" >注册</button>
+                </a>
+
+            </form>
+            <hr>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

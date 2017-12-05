@@ -1,0 +1,14 @@
+h1{
+    margin-left: 70px;
+    margin-top: 30px;
+}
+.info{
+    border-bottom-color:#ddd;
+    border-right-color:#ddd;
+}
+li{
+    list-style:none;
+}
+a:visited {color:black;}
+a:link {color:black;}
+a {color:white;}

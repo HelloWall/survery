@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/home.css">
+</head>
+<body>
+<h1>主页</h1>
+<div class="container">
+    <hr>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2 ">
+            <ul>
+                <li><h4><a href="">班级</a></h4></li>
+                <li><h4><a href="">学生</a></h4></li>
+                <li><h4><a href="">问卷</a></h4></li>
+            </ul>
+        </div>
+        <div class="col-md-9">
+            <div class="panel info">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-md-2"><h4>班级信息</h4></div>
+                        <div class="col-md-2 col-md-offset-8"><span><button class="btn-default btn btn-sm">添加</button></span></div>
+                    </div>
+
+                </div>
+                <div class="panel-body">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>Serial Number</th>
+                            <th>Questionnaire Name</th>
+                            <th>Class Name</th>
+                            <th>Completion Num</th>
+                            <th>Administration</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for class in class_list %}
+                        <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td><a href="">None</a></td>
+                        <td>{{ class.title }}</td>
+                        <td>0/{{ class.student_lesson.all|length }}</td>
+                        <td><a href="">
+                            <button class="btn-default btn btn-sm">编辑</button>
+                        </a><a href="">
+                            <button class="btn-default btn btn-sm">删除</button>
+                        </a></td>
+                        </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
