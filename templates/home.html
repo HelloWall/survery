@@ -35,7 +35,12 @@
                         {% endblock %}
 
                         </h4></div>
-                        <div class="col-md-2 col-md-offset-8"><span><button class="btn-default btn btn-sm">添加</button></span></div>
+                        <div class="col-md-2 col-md-offset-8"><span>
+                            {% block add %}
+                                                        <a href=""><button class="btn-default btn btn-sm">添加</button></a>
+
+                            {% endblock %}
+                        </span></div>
                     </div>
 
                 </div>

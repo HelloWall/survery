@@ -2,8 +2,10 @@
 {% block title %}
     问题列表
 {% endblock %}
+
 {% block table_info %}
     <div class="parent_border">
+        <form action="" method="get" novalidate>
         <div class="new_border">
         {% for trouble in questionnaire_list.trouble_questionnaire.all %}
             <div class="border_info">
@@ -47,12 +49,16 @@
     </div>
         <hr>
     <div>
-        <button class="btn-default btn" style="width: 100px;margin-left: 40%">提交</button>
+        <button class="btn-default btn refer" style="width: 100px;margin-left: 40%">提交</button>
     </div>
+        </form>
     </div>
 
     <script>
-
+    $("refer").click(function () {
+        var a = $("textarea").val()
+        console.log(a)
+    })
 
     $(".new_border").on("click",".remove_span",function(){
        $(this).parent().parent().parent().remove()

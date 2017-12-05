@@ -39,6 +39,7 @@ def questionnaire(request):
 
 
 def trouble(request,questionnaire_id):
+
     questionnaire_list=models.Questionnaire.objects.filter(id=questionnaire_id).first()
     genre_LIst = models.Genre.objects.all()
     return render(request,"trouble.html",{"questionnaire_list":questionnaire_list,"genre_LIst":genre_LIst})
@@ -51,3 +52,8 @@ def add_question(request):
     for genre in genre_list:
         genre_dict['genre'].append(genre.title)
     return HttpResponse(json.dumps(genre_dict))
+
+
+def result(request):
+    print(request)
+    return render(request,"result.html")

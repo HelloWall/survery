@@ -26,4 +26,5 @@ urlpatterns = [
     url(r'^questionnaire/', views.questionnaire),
     url(r'^trouble/(\d+)$', views.trouble),
     url(r'^add_question/', views.add_question),
+    url(r'^result/', views.result),
 ]
