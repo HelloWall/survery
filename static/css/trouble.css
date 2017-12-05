@@ -1,0 +1,20 @@
+.add_border{
+    width: 98%;
+    height: 200px;
+    border: 1px solid #eee;
+    background-color: #eee;
+}
+.border_info{
+     width: 98%;
+    height: 200px;
+    border: 1px solid #eeeeee;
+    margin-bottom: 10px;
+}
+.question_info{
+    margin-top: 10px;
+}
+.add_span{
+    color: #cccccc;
+    line-height: 200px;
+    margin-left: 45%;
+}

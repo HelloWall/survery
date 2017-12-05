@@ -1,0 +1,36 @@
+{% extends "home.html" %}
+
+{% block title %}
+问卷信息
+{% endblock %}
+
+{% block table_info %}
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>Serial Number</th>
+                            <th>Questionnaire Name</th>
+                            <th>Question Num</th>
+                            <th>Class Name</th>
+                            <th>Administration</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for questionnaire in questionnaire_list %}
+                        <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ questionnaire.title }}</td>
+                        <td>{{ questionnaire.trouble_questionnaire.all|length }}</td>
+                        <td>{{ questionnaire.questionnaire_lesson.title }}</td>
+                        <td><a href="/trouble/{{ questionnaire.id }}">
+                            <button class="btn-default btn btn-sm">编辑</button>
+                        </a><a href="">
+                            <button class="btn-default btn btn-sm">删除</button>
+                        </a></td>
+                        </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+
+{% endblock %}

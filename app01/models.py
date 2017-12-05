@@ -41,7 +41,7 @@ class Genre(models.Model):
     问题类型表
     """
     title=models.CharField(max_length=16)#类型名
-    genre_trouble=models.ForeignKey(to=Trouble,related_name="genre_trouble")#与问题表为多对一的关系
+    genre_trouble=models.ManyToManyField(to=Trouble,related_name="genre_trouble")#与问题表为多对一的关系
 
 class Option (models.Model):
     """

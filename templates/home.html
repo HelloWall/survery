@@ -6,49 +6,58 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="/static/css/home.css">
+    <link rel="stylesheet" href="/static/css/trouble.css">
+    <script src="/static/jquery-3.2.1.js"></script>
+
 </head>
 <body>
-<h1>主页</h1>
+<a id="first" href="/home/"><h1>主页</h1></a>
 <div class="container">
     <hr>
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-md-2 ">
+        <div class="col-md-2 menu_list">
             <ul>
-                <li><h4><a href="">班级</a></h4></li>
-                <li><h4><a href="">学生</a></h4></li>
-                <li><h4><a href="">问卷</a></h4></li>
+                <li><h4><a href="/lesson/">班级</a></h4></li>
+                <li><h4><a href="/student/">学生</a></h4></li>
+                <li><h4><a href="/questionnaire/">问卷</a></h4></li>
             </ul>
         </div>
         <div class="col-md-9">
             <div class="panel info">
                 <div class="panel-heading">
                     <div class="row">
-                        <div class="col-md-2"><h4>班级信息</h4></div>
+                        <div class="col-md-2"><h4>{% block title %}
+                         全部信息
+                        {% endblock %}
+
+                        </h4></div>
                         <div class="col-md-2 col-md-offset-8"><span><button class="btn-default btn btn-sm">添加</button></span></div>
                     </div>
 
                 </div>
                 <div class="panel-body">
-                    <table class="table table-hover">
+                {% block table_info %}
+                                    <table class="table table-hover">
                         <thead>
                         <tr>
                             <th>Serial Number</th>
-                            <th>Questionnaire Name</th>
                             <th>Class Name</th>
+                            <th>Questionnaire Name</th>
                             <th>Completion Num</th>
                             <th>Administration</th>
                         </tr>
                         </thead>
                         <tbody>
-                        {% for class in class_list %}
+                        {% for questionnaire in questionnaire_list %}
                         <tr>
                         <td>{{ forloop.counter }}</td>
-                        <td><a href="">None</a></td>
-                        <td>{{ class.title }}</td>
-                        <td>0/{{ class.student_lesson.all|length }}</td>
+                        <td>{{ questionnaire.questionnaire_lesson.title }}</td>
+                        <td class="a_style"><a href="/trouble/{{ questionnaire.id }}">{{ questionnaire.title }}</a></td>
+                        <td>0/{{ questionnaire.questionnaire_lesson.student_lesson.all|length }}</td>
                         <td><a href="">
                             <button class="btn-default btn btn-sm">编辑</button>
                         </a><a href="">
@@ -59,9 +68,9 @@
 
                         </tbody>
                     </table>
+
+                {% endblock %}
                 </div>
-
-
             </div>
         </div>
 

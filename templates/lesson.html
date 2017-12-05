@@ -1,0 +1,35 @@
+{% extends "home.html" %}
+
+{% block title %}
+班级信息
+{% endblock %}
+
+
+{% block table_info %}
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>Serial Number</th>
+                            <th>Class Name</th>
+                            <th>Student Num</th>
+                            <th>Administration</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for lesson in lesson_list %}
+                        <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ lesson.title }}</td>
+                        <td>{{ lesson.student_lesson.all|length }}</td>
+                        <td><a href="">
+                            <button class="btn-default btn btn-sm">编辑</button>
+                        </a><a href="">
+                            <button class="btn-default btn btn-sm">删除</button>
+                        </a></td>
+                        </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+
+{% endblock %}

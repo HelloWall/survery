@@ -2,6 +2,10 @@ h1{
     margin-left: 70px;
     margin-top: 30px;
 }
+#first{
+    text-decoration:none;
+    color: #003366;
+}
 .info{
     border-bottom-color:#ddd;
     border-right-color:#ddd;
@@ -9,6 +13,15 @@ h1{
 li{
     list-style:none;
 }
-a:visited {color:black;}
-a:link {color:black;}
-a {color:white;}
+a:visited {color:#003333;}
+.menu_list a {
+
+
+text-decoration:none;
+}
+table .a_style a{
+    text-decoration:none;
+}
+.menu_list li:hover{
+    border-right: solid 1px black;
+}

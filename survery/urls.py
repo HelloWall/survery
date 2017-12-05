@@ -21,4 +21,9 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^login/', views.login),
     url(r'^home/', views.home),
+    url(r'^student/', views.student),
+    url(r'^lesson/', views.lesson),
+    url(r'^questionnaire/', views.questionnaire),
+    url(r'^trouble/(\d+)$', views.trouble),
+    url(r'^add_question/', views.add_question),
 ]

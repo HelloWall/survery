@@ -1,0 +1,97 @@
+{% extends "home.html" %}
+{% block title %}
+    问题列表
+{% endblock %}
+{% block table_info %}
+    <div class="parent_border">
+        <div class="new_border">
+        {% for trouble in questionnaire_list.trouble_questionnaire.all %}
+            <div class="border_info">
+                <div class="row question_info" style="margin-top: 10px">
+
+                    <div class="col-md-1">问题:</div>
+                    <div class="col-md-10"><textarea class="form-control" name=""  cols="30" rows="10"
+                                                     placeholder="{{ trouble.title }}"
+                                                     style="width: 70%;height: 100px">
+                        {{ trouble.title }}
+                    </textarea>
+                    </div>
+                    <div class="pull-right col-md-1" style="text-align: right">
+                        <span class="glyphicon glyphicon-remove remove_span"></span></div>
+                </div>
+                <div class="row" style="margin-top: 10px">
+                    <div class="col-md-1" >类型:</div>
+                    <div class="col-md-7">
+                        {% for genre in trouble.genre_trouble.all %}
+                        <select name="" id="" class="form-control">
+                            {% for genre_a in genre_LIst %}
+                                {% if genre.title == genre_a.title %}
+                                    <option value="{{ genre.ic }}"
+                                            selected="selected">{{ genre_a.title }}</option>
+                                {% else %}
+                                    <option value="{{ genre.id }}">{{ genre_a.title }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    {% endfor %}
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn-default btn">添加选项</button></div>
+                </div>
+
+            </div>
+        {% endfor %}
+        </div>
+    <div class="add_border">
+        <span class="glyphicon glyphicon-plus fa-5x add_span"></span>
+    </div>
+        <hr>
+    <div>
+        <button class="btn-default btn" style="width: 100px;margin-left: 40%">提交</button>
+    </div>
+    </div>
+
+    <script>
+
+
+    $(".new_border").on("click",".remove_span",function(){
+       $(this).parent().parent().parent().remove()
+    });
+
+
+
+
+ $(".parent_border").on("click",".add_border",function(){
+    $.ajax({
+        url:"/add_question/",
+        type:"GET",
+        data:{},
+        success:function (data) {
+            var data = JSON.parse(data);
+            var s = '<div class="border_info">'+
+'    <div class="row question_info" style="margin-top: 10px">'+
+'        <div class="col-md-1">问题:</div>'+
+'        <div class="col-md-10"><textarea class="form-control" name="" cols="30" rows="10" placeholder="问题" style="width: 70%;height: 100px"></textarea></div>'+
+'        <div class="pull-right col-md-1" style="text-align: right"><span class="glyphicon glyphicon-remove remove_span"></span></div>'+
+'    </div>'+
+'    <div class="row" style="margin-top: 10px">'+
+'        <div class="col-md-1">类型:</div>'+
+'        <div class="col-md-7">'+
+'                <select name="" id="" class="form-control">'+
+'                            <option value="">'+data.genre[0]+'</option>'+
+'                            <option value="">'+data.genre[1]+'</option>'+
+'                            <option value="">'+data.genre[2]+'</option>'+
+'                            <option value="">'+data.genre[3]+'</option>'+
+'                </select>'+
+'        </div>'+
+'    </div>'+
+'</div>';
+            $(".new_border").append(s);
+            console.log(data.genre[0]);
+        }
+    })
+
+    })
+
+    </script>
+{% endblock %}
